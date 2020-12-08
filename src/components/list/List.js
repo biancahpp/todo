@@ -13,7 +13,6 @@ export default function List() {
   function addItem (e) {
     e.preventDefault()
     setList([...list, {item: item, completed: false}])
-    console.log(list)
   }
 
   function deleteItem (index) {
@@ -27,11 +26,20 @@ export default function List() {
     
     const res = list.map((el, ind) => {
 
-      return ind === index ? { ...el, completed: true }: el;
+      return ind === index ? { ...el, completed: !el.completed }: el;
     }
     )
     setList(res)
+    console.log(res)
   }
+
+  // function active () {
+  //   const res = list.filter((el, ind) => {
+  //     return !el.completed
+  //   } )
+  //   console.log(res)
+  //   return res
+  // }
 
   return (
     <div className='listWrapper'>
@@ -44,7 +52,7 @@ export default function List() {
       <div className='todoListContainer'>
         {list ? 
         list.map((item, index) => 
-        <div key={uuidv4()}className='todoItem'>
+        <div key={uuidv4()} className={item.completed ? 'todoItem completed' : 'todoItem'} >
           <button className='complete' onClick={ () => completeTodo(index)}>
             C
           </button>
@@ -54,6 +62,15 @@ export default function List() {
           </button>
           </div>) : 
         <div> Loading </div>}
+      </div>
+      <div className='footer'>
+        <p>items left</p>
+        <div className='filters'>
+        <button>All</button>
+        <button>Active</button>
+        <button>Completed</button>
+        </div>
+        <button>Clear Completed</button>
       </div>
       
     </div>

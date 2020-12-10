@@ -10,6 +10,10 @@ export default function List() {
 
   const [ item, setItem ] = useState(null);
 
+  const [ completed, setCompleted ] = useState([]);
+
+  const [ active, setActive ] = useState([]);
+
   function addItem (e) {
     e.preventDefault()
     setList([...list, {item: item, completed: false}])
@@ -33,13 +37,35 @@ export default function List() {
     console.log(res)
   }
 
-  // function active () {
-  //   const res = list.filter((el, ind) => {
-  //     return !el.completed
-  //   } )
-  //   console.log(res)
-  //   return res
-  // }
+  function showActive () {
+
+    const res = list.filter((el => !el.completed));
+
+    setActive([...active, res]);
+    console.log(res)
+
+  }
+
+  function showCompleted () {
+
+    const res = list.filter((el => el.completed));
+
+    setCompleted([...completed, res]);
+    console.log(res)
+
+  }
+
+  function clearCompleted () {
+
+    const res = list.filter(el => !el.completed);
+
+    setList(res)
+  }
+
+  function showAll () {
+
+    
+  }
 
   return (
     <div className='listWrapper'>
@@ -66,11 +92,11 @@ export default function List() {
       <div className='footer'>
         <p>items left</p>
         <div className='filters'>
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+        <button onClick ={showAll}>All</button>
+        <button onClick={showActive}>Active</button>
+        <button onClick={showCompleted}>Completed</button>
         </div>
-        <button>Clear Completed</button>
+        <button onClick={clearCompleted}>Clear Completed</button>
       </div>
       
     </div>

@@ -1,13 +1,30 @@
 .title{
-  font-size: 25px;
+  font-size: 50px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 20px;
+  color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 50px;
   
 }
 
 .headerContainer{
   width: 100%;
-  /* height: 100%; */
-  background: pink;
+}
+
+.title button{
+  border: none;
+  background: none;
+  height: 40px;
+  width: 40px;
+
+}
+
+.title button img{
+  height: 100%;
+  width: 100%;
+  
 }

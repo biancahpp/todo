@@ -6,11 +6,14 @@ import List from './components/list/List';
 function App() {
   return (
     <div className="App">
-      <div className="container">
+      <div className="headerWrapper">
         <Header />
+      </div>
+      <div className="listWrapper">
         <List />
       </div>
     </div>
+
   );
 }
 

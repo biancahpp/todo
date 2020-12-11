@@ -6,6 +6,7 @@
 }
 
 body {
+  background-image: url("./images/bg-desktop-light.jpg");
   background: #f5f5f5;
   font: 14px sans-serif;
   color: #333;

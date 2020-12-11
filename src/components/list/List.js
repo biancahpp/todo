@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -10,9 +10,17 @@ export default function List() {
 
   const [ item, setItem ] = useState(null);
 
-  const [ completed, setCompleted ] = useState([]);
+  const [ display, setDisplay ] = useState('all');
 
+  const [ completed, setCompleted ] = useState([]);
   const [ active, setActive ] = useState([]);
+
+  let itemsLeft = list.length - completed.length;
+
+  useEffect(() => {
+    showActive();
+    showCompleted();
+  }, [list])
 
   function addItem (e) {
     e.preventDefault()
@@ -41,7 +49,7 @@ export default function List() {
 
     const res = list.filter((el => !el.completed));
 
-    setActive([...active, res]);
+    setActive(res);
     console.log(res)
 
   }
@@ -50,7 +58,7 @@ export default function List() {
 
     const res = list.filter((el => el.completed));
 
-    setCompleted([...completed, res]);
+    setCompleted(res);
     console.log(res)
 
   }
@@ -64,7 +72,8 @@ export default function List() {
 
   function showAll () {
 
-    
+    setDisplay('all')
+
   }
 
   return (
@@ -76,8 +85,8 @@ export default function List() {
          <button type='submit'>ICON</button>
       </form>
       <div className='todoListContainer'>
-        {list ? 
-        list.map((item, index) => 
+
+        {display === 'all' ? list.map((item, index) => 
         <div key={uuidv4()} className={item.completed ? 'todoItem completed' : 'todoItem'} >
           <button className='complete' onClick={ () => completeTodo(index)}>
             C
@@ -86,15 +95,47 @@ export default function List() {
           <button onClick={() => deleteItem(index)}>
             Delete
           </button>
-          </div>) : 
-        <div> Loading </div>}
+          </div>) : display === 'active' 
+          ? 
+          active.map((item, index) => 
+        <div key={uuidv4()} className={item.completed ? 'todoItem completed' : 'todoItem'} >
+          <button className='complete' onClick={ () => completeTodo(index)}>
+            C
+          </button>
+          {item.item}
+          <button onClick={() => deleteItem(index)}>
+            Delete
+          </button>
+          </div>)
+          :
+          completed.map((item, index) => 
+        <div key={uuidv4()} className={item.completed ? 'todoItem completed' : 'todoItem'} >
+          <button className='complete' onClick={ () => completeTodo(index)}>
+            C
+          </button>
+          {item.item}
+          <button onClick={() => deleteItem(index)}>
+            Delete
+          </button>
+          </div>)
+          }
+
       </div>
       <div className='footer'>
-        <p>items left</p>
+        <p>{itemsLeft} Items left</p>
         <div className='filters'>
-        <button onClick ={showAll}>All</button>
-        <button onClick={showActive}>Active</button>
-        <button onClick={showCompleted}>Completed</button>
+        <button onClick ={() => {
+          showAll();
+          setDisplay('all')
+        }}>All</button>
+        <button onClick={() => {
+          
+          setDisplay('active');
+        }}>Active</button>
+        <button onClick={() => {
+          
+          setDisplay('completed');
+        }}>Completed</button>
         </div>
         <button onClick={clearCompleted}>Clear Completed</button>
       </div>

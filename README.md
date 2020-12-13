@@ -1,6 +1,6 @@
 # To-do App #
 
-This app was built using React and CSS.
+This app was built using ReactJS and CSS.
 
 ## Introduction ##
 
@@ -13,6 +13,7 @@ If you prefer you can also chosse between dark/light mode by clicking the moon/s
 To get started, simply clone this repo, and on your terminal type:
 
 npm install
+
 npm start
 
 ## Links ##

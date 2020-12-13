@@ -1,27 +1,80 @@
 .completed {
+
+
+
   text-decoration: line-through;
 }
 
+.todoItem{
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: hsl(234, 39%, 85%) 1px solid;
+  padding: 8px;
+}
+
+.deleteBtn{
+  background: none;
+  border: none;
+}
+
 .todoListContainer {
-  
+  width: 100%;
+  background: white;
+  height: 80%;
+  overflow-y: scroll;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.listWrapper{
+  background: crimson;
 }
 
 .listWrapper form {
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  background: red;
+  height: 10%;
+  display: flex;
+  margin-bottom: 17px;
+  align-items: center;
+}
+
+.formWrapper {
+  background: white;
+  border-radius: 8px 8px 8px 8px;
+  padding-left: 8px;
 }
 
 .listWrapper input {
   width: 90%;
   height: 50px;
-  background: purple;
+  border-radius: 8px 0px 0px 8px;
   padding-left: 30px;
-  
+  border: none;
 }
 
-.listWrapper button {
+.submitBtn {
   width: 10%;
   height: 50px;
+  border: none;
+  border-radius: 0px 8px 8px 0px;
+  background: white;
 }
+
+.footer{
+  height: 10%;
+}
+
+.uncomplete{
+  background: none;
+  border: none;
+}
+
+.complete{
+  background: none;
+  border: none;
+}
+
+.wrapper {
+  background: red;
+}
+

@@ -1,6 +1,9 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import './styles.css';
+import {
+  FiArrowRight, FiX, FiCircle, FiCheckCircle, FiPlusCircle,
+} from 'react-icons/fi';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -60,48 +63,75 @@ export default function List() {
 
   return (
     <div className="listWrapper">
-      <form onSubmit={addItem}>
-        <input
-          type="text"
-          placeholder="Create a new todo..."
-          onChange={(e) => {
-            setItem(e.target.value);
-          }}
-        />
-        <button type="submit">ICON</button>
-      </form>
+      <div className="formWrapper">
+        <form onSubmit={addItem}>
+          <FiPlusCircle size={26} color="hsl(234, 39%, 85%)" />
+          <input
+            type="text"
+            placeholder="Create a new todo..."
+            onChange={(e) => {
+              setItem(e.target.value);
+            }}
+          />
+          <button type="submit" label="arrowRight" className="submitBtn"><FiArrowRight size={26} color="hsl(234, 39%, 85%)" /></button>
+        </form>
+      </div>
       <div className="todoListContainer">
 
         {display === 'all' ? list.map((el, index) => (
           <div key={uuidv4()} className={el.completed ? 'todoItem completed' : 'todoItem'}>
-            <button type="button" className="complete" onClick={() => completeTodo(index)}>
-              C
-            </button>
-            {el.item}
-            <button type="button" onClick={() => deleteItem(index)}>
-              Delete
+            <div className="wrapper">
+              {el.completed ? (
+                <button type="button" className="complete" onClick={() => completeTodo(index)}>
+                  <FiCheckCircle size={26} color="hsl(234, 39%, 85%)" />
+                </button>
+              ) : (
+                <button type="button" className="uncomplete" onClick={() => completeTodo(index)}>
+                  <FiCircle size={26} color="hsl(234, 39%, 85%)" />
+                </button>
+              )}
+              {el.item}
+            </div>
+            <button type="button" className="deleteBtn" onClick={() => deleteItem(index)}>
+              <FiX size={26} color="hsl(234, 39%, 85%)" />
             </button>
           </div>
         )) : display === 'active'
           ? active.map((el, index) => (
             <div key={uuidv4()} className={el.completed ? 'todoItem completed' : 'todoItem'}>
-              <button type="button" className="complete" onClick={() => completeTodo(index)}>
-                C
-              </button>
-              {el.item}
-              <button type="button" onClick={() => deleteItem(index)}>
-                Delete
+              <div className="wrapper">
+                {el.completed ? (
+                  <button type="button" className="complete" onClick={() => completeTodo(index)}>
+                    <FiCheckCircle size={26} color="hsl(234, 39%, 85%)" />
+                  </button>
+                ) : (
+                  <button type="button" className="uncomplete" onClick={() => completeTodo(index)}>
+                    <FiCircle size={26} color="hsl(234, 39%, 85%)" />
+                  </button>
+                )}
+                {el.item}
+              </div>
+              <button type="button" className="deleteBtn" onClick={() => deleteItem(index)}>
+                <FiX size={26} color="hsl(234, 39%, 85%)" />
               </button>
             </div>
           ))
           : completed.map((el, index) => (
             <div key={uuidv4()} className={el.completed ? 'todoItem completed' : 'todoItem'}>
-              <button type="button" className="complete" onClick={() => completeTodo(index)}>
-                C
-              </button>
-              {el.item}
-              <button type="button" onClick={() => deleteItem(index)}>
-                Delete
+              <div className="wrapper">
+                {el.completed ? (
+                  <button type="button" className="complete" onClick={() => completeTodo(index)}>
+                    <FiCheckCircle size={26} color="hsl(234, 39%, 85%)" />
+                  </button>
+                ) : (
+                  <button type="button" className="uncomplete" onClick={() => completeTodo(index)}>
+                    <FiCircle size={26} color="hsl(234, 39%, 85%)" />
+                  </button>
+                )}
+                {el.item}
+              </div>
+              <button type="button" className="deleteBtn" onClick={() => deleteItem(index)}>
+                <FiX size={26} color="hsl(234, 39%, 85%)" />
               </button>
             </div>
           ))}

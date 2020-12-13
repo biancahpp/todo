@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
-import lightIcon from '../../images/icon-sun.svg';
+// import lightIcon from '../../images/icon-sun.svg';
+import darkIcon from '../../images/icon-moon.svg';
 
 export default function Header() {
   return (
@@ -8,7 +9,7 @@ export default function Header() {
       <div className="title">
         <p>TODO</p>
         {' '}
-        <button type="button"><img src={lightIcon} alt="Sun Icon" /></button>
+        <button type="button"><img src={darkIcon} alt="Sun Icon" /></button>
       </div>
     </div>
   );

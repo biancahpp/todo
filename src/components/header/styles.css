@@ -20,11 +20,47 @@
   background: none;
   height: 30px;
   width: 30px;
-
+  cursor: pointer;
 }
 
 .title button img{
   height: 100%;
   width: 100%;
-  
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .title{
+    font-size: 60px
+  }
+
+  .title button{
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 768px), (max-width: 1024px) and (orientation: landscape){
+  .title{
+    font-size: 50px
+  }
+
+  .title button{
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+  }
+
+}
+
+@media (min-width: 1025px){
+  .title{
+    font-size: 45px
+  }
+
+  .title button{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+  }
 }

@@ -74,7 +74,7 @@ export default function List() {
     <div className="listWrapper">
       <div className="formWrapper">
         <form onSubmit={addItem}>
-          <FiPlusCircle size={30} color="hsl(236, 33%, 92%)" />
+          <FiPlusCircle size={30} color="hsl(236, 33%, 92%)" className="plusCircleIcon" />
           <input
             type="text"
             value={item}
@@ -84,7 +84,7 @@ export default function List() {
             }}
           />
           <FiAlertCircle size={26} color="red" display={redIcon} className="redIcon" />
-          <button type="submit" label="arrowRight" className="submitBtn"><FiArrowRight size={26} color="hsl(236, 33%, 92%)" /></button>
+          <button type="submit" label="arrowRight" className="submitBtn"><FiArrowRight size={26} color="hsl(236, 33%, 92%)" className="submitIcon" /></button>
         </form>
       </div>
       <div className="todoListContainer">

@@ -156,3 +156,173 @@
   color:hsl(280, 87%, 65%);
 }
 
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .todoItem{
+    height: 70px;
+  }
+
+  .listWrapper input {
+    width: 90%;
+    height: 70px;
+  }
+
+  .filters {
+    height: 70px;
+  }
+
+  .itemsLeftWrapper{
+    height: 70px;
+  }
+
+  .completed {
+    text-decoration: line-through;
+    color: hsl(233, 11%, 84%);
+  }
+}
+
+@media (min-width: 768px), (max-width: 1024px) and (orientation: landscape){
+  
+  .todoItem{
+    height: 90px;
+  }
+
+  .listWrapper input {
+    width: 90%;
+    height: 90px;
+  }
+
+  .filters {
+    height: 90px;
+  }
+
+  .itemsLeftWrapper{
+    height: 90px;
+  }
+
+  .listWrapper input::placeholder{
+    font-size: 25px;
+  }
+
+  .redIcon{
+    margin-right: 5px;
+    height: 50px;
+    width: 50px;
+  }
+  
+  .circleIcon{
+    color:hsl(236, 33%, 92%);
+    height: 50px;
+    width: 50px;
+  }
+  
+  .checkCircleIcon{
+    color:hsl(280, 87%, 65%);
+    height: 50px;
+    width: 50px;
+  }
+  
+  .iconX{
+    color:hsl(236, 33%, 92%);
+    height: 50px;
+    width: 50px;
+  }
+
+  .plusCircleIcon{
+    height: 50px;
+    width: 50px;
+  }
+
+  .submitIcon{
+    height: 50px;
+    width: 50px;
+  }
+
+  .filters button{
+    font-size: 25px;
+  }
+
+  .itemsLeftWrapper button{
+    font-size: 25px;
+  }
+
+  .itemsLeftWrapper{
+    padding: 0 30px 0 30px;
+  }
+
+  .completed {
+    text-decoration: line-through;
+    color: hsl(233, 11%, 84%);
+  }
+}
+
+@media (min-width: 1025px){
+  .completed {
+    text-decoration: line-through;
+    color: hsl(233, 11%, 84%);
+  }
+
+  .todoItem{
+    height: 70px;
+  }
+
+  .listWrapper input {
+    width: 90%;
+    height: 70px;
+    font-size: 18px;
+  }
+
+  .listWrapper input::placeholder{
+    font-size: 18px;
+  }
+
+  .filters {
+    height: 70px;
+  }
+
+  .itemsLeftWrapper{
+    height: 70px;
+  }
+
+  .redIcon{
+    margin-right: 5px;
+    height: 30px;
+    width: 30px;
+  }
+  
+  .circleIcon{
+    color:hsl(236, 33%, 92%);
+    height: 30px;
+    width: 30px;
+  }
+  
+  .checkCircleIcon{
+    height: 30px;
+    width: 30px;
+  }
+  
+  .iconX{
+    color:hsl(236, 33%, 92%);
+    height: 30px;
+    width: 30px;
+  }
+
+  .plusCircleIcon{
+    height: 30px;
+    width: 30px;
+  }
+
+  .submitIcon{
+    height: 30px;
+    width: 30px;
+  }
+
+  .filters button{
+    font-size: 18px;
+  }
+
+  .itemsLeftWrapper button{
+    font-size: 18px;
+  }
+}
+

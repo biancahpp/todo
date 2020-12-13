@@ -65,7 +65,7 @@ export default function List() {
     <div className="listWrapper">
       <div className="formWrapper">
         <form onSubmit={addItem}>
-          <FiPlusCircle size={26} color="hsl(234, 39%, 85%)" />
+          <FiPlusCircle size={30} color="hsl(236, 33%, 92%)" />
           <input
             type="text"
             placeholder="Create a new todo..."
@@ -73,7 +73,7 @@ export default function List() {
               setItem(e.target.value);
             }}
           />
-          <button type="submit" label="arrowRight" className="submitBtn"><FiArrowRight size={26} color="hsl(234, 39%, 85%)" /></button>
+          <button type="submit" label="arrowRight" className="submitBtn"><FiArrowRight size={26} color="hsl(236, 33%, 92%)" /></button>
         </form>
       </div>
       <div className="todoListContainer">
@@ -83,17 +83,17 @@ export default function List() {
             <div className="wrapper">
               {el.completed ? (
                 <button type="button" className="complete" onClick={() => completeTodo(index)}>
-                  <FiCheckCircle size={26} color="hsl(234, 39%, 85%)" />
+                  <FiCheckCircle size={26} color="hsl(236, 33%, 92%)" />
                 </button>
               ) : (
                 <button type="button" className="uncomplete" onClick={() => completeTodo(index)}>
-                  <FiCircle size={26} color="hsl(234, 39%, 85%)" />
+                  <FiCircle size={26} color="hsl(236, 33%, 92%)" />
                 </button>
               )}
               {el.item}
             </div>
             <button type="button" className="deleteBtn" onClick={() => deleteItem(index)}>
-              <FiX size={26} color="hsl(234, 39%, 85%)" />
+              <FiX size={26} color="hsl(236, 33%, 92%)" />
             </button>
           </div>
         )) : display === 'active'
@@ -102,17 +102,17 @@ export default function List() {
               <div className="wrapper">
                 {el.completed ? (
                   <button type="button" className="complete" onClick={() => completeTodo(index)}>
-                    <FiCheckCircle size={26} color="hsl(234, 39%, 85%)" />
+                    <FiCheckCircle size={26} color="hsl(236, 33%, 92%)" />
                   </button>
                 ) : (
                   <button type="button" className="uncomplete" onClick={() => completeTodo(index)}>
-                    <FiCircle size={26} color="hsl(234, 39%, 85%)" />
+                    <FiCircle size={26} color="hsl(236, 33%, 92%)" />
                   </button>
                 )}
                 {el.item}
               </div>
               <button type="button" className="deleteBtn" onClick={() => deleteItem(index)}>
-                <FiX size={26} color="hsl(234, 39%, 85%)" />
+                <FiX size={26} color="hsl(236, 33%, 92%)" />
               </button>
             </div>
           ))
@@ -121,17 +121,17 @@ export default function List() {
               <div className="wrapper">
                 {el.completed ? (
                   <button type="button" className="complete" onClick={() => completeTodo(index)}>
-                    <FiCheckCircle size={26} color="hsl(234, 39%, 85%)" />
+                    <FiCheckCircle size={26} color="hsl(236, 33%, 92%)" />
                   </button>
                 ) : (
                   <button type="button" className="uncomplete" onClick={() => completeTodo(index)}>
-                    <FiCircle size={26} color="hsl(234, 39%, 85%)" />
+                    <FiCircle size={26} color="hsl(236, 33%, 92%)" />
                   </button>
                 )}
                 {el.item}
               </div>
               <button type="button" className="deleteBtn" onClick={() => deleteItem(index)}>
-                <FiX size={26} color="hsl(234, 39%, 85%)" />
+                <FiX size={26} color="hsl(236, 33%, 92%)" />
               </button>
             </div>
           ))}

@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default function List() {
   const [list, setList] = useState([]);
 
-  const [item, setItem] = useState(null);
+  const [item, setItem] = useState('');
 
   const [display, setDisplay] = useState('all');
 
@@ -20,8 +20,14 @@ export default function List() {
   const itemsLeft = list.length - completed.length;
 
   function addItem(e) {
-    e.preventDefault();
-    setList([...list, { item, completed: false }]);
+    if (item === '') {
+      e.preventDefault();
+      alert('Please insert a To-do');
+    } else {
+      e.preventDefault();
+      setList([...list, { item, completed: false }]);
+      setItem('');
+    }
   }
 
   function deleteItem(index) {
@@ -68,6 +74,7 @@ export default function List() {
           <FiPlusCircle size={30} color="hsl(236, 33%, 92%)" />
           <input
             type="text"
+            value={item}
             placeholder="Create a new todo..."
             onChange={(e) => {
               setItem(e.target.value);

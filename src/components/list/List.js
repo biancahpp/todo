@@ -135,14 +135,16 @@ export default function List() {
               </button>
             </div>
           ))}
-
       </div>
       <div className="footer">
-        <p>
-          {itemsLeft}
-          {' '}
-          Items left
-        </p>
+        <div className="itemsLeftWrapper">
+          <p>
+            {itemsLeft}
+            {' '}
+            items left
+          </p>
+          <button type="button" onClick={clearCompleted}>Clear Completed</button>
+        </div>
         <div className="filters">
           <button
             type="button"
@@ -151,7 +153,7 @@ export default function List() {
               setDisplay('all');
             }}
           >
-            All
+            {display === 'all' ? <p className="filterActive">All</p> : <p>All</p>}
           </button>
           <button
             type="button"
@@ -159,7 +161,7 @@ export default function List() {
               setDisplay('active');
             }}
           >
-            Active
+            {display === 'active' ? <p className="filterActive">Active</p> : <p>Active</p>}
           </button>
           <button
             type="button"
@@ -167,10 +169,9 @@ export default function List() {
               setDisplay('completed');
             }}
           >
-            Completed
+            {display === 'completed' ? <p className="filterActive">Completed</p> : <p>Completed</p>}
           </button>
         </div>
-        <button type="button" onClick={clearCompleted}>Clear Completed</button>
       </div>
 
     </div>

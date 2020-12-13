@@ -20,12 +20,11 @@ body {
 
 .App {
   width: 85vw;
-  height: 85vh;
+  height: 90vh;
   
 }
 
 .listWrapper{
-  background: blue;
   height: 90%;
 }
 

@@ -56,3 +56,22 @@ body {
 .headerWrapper{
   height: 10%;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root{
+    --bg-img-light: url("./images/bg-desktop-light.jpg");
+    --bg-img-dark: url("./images/bg-desktop-dark.jpg");
+  }
+  .App {
+    width: 70vw;
+    height: 90vh;
+  }
+  
+  .listWrapper{
+    height: 90%;
+  }
+  
+  .headerWrapper{
+    height: 10%;
+  }
+}

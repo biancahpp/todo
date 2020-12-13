@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import {
-  FiArrowRight, FiX, FiCircle, FiCheckCircle, FiPlusCircle,
+  FiArrowRight, FiX, FiCircle, FiCheckCircle, FiPlusCircle, FiAlertCircle,
 } from 'react-icons/fi';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -19,14 +19,17 @@ export default function List() {
 
   const itemsLeft = list.length - completed.length;
 
+  const [redIcon, setRedIcon] = useState('none');
+
   function addItem(e) {
     if (item === '') {
       e.preventDefault();
-      alert('Please insert a To-do');
+      setRedIcon('block');
     } else {
       e.preventDefault();
       setList([...list, { item, completed: false }]);
       setItem('');
+      setRedIcon('none');
     }
   }
 
@@ -80,6 +83,7 @@ export default function List() {
               setItem(e.target.value);
             }}
           />
+          <FiAlertCircle size={26} color="red" display={redIcon} className="redIcon" />
           <button type="submit" label="arrowRight" className="submitBtn"><FiArrowRight size={26} color="hsl(236, 33%, 92%)" /></button>
         </form>
       </div>
@@ -90,17 +94,17 @@ export default function List() {
             <div className="wrapper">
               {el.completed ? (
                 <button type="button" className="complete" onClick={() => completeTodo(index)}>
-                  <FiCheckCircle size={26} color="hsl(236, 33%, 92%)" />
+                  <FiCheckCircle size={26} className="checkCircleIcon" />
                 </button>
               ) : (
                 <button type="button" className="uncomplete" onClick={() => completeTodo(index)}>
-                  <FiCircle size={26} color="hsl(236, 33%, 92%)" />
+                  <FiCircle size={26} className="circleIcon" />
                 </button>
               )}
               {el.item}
             </div>
             <button type="button" className="deleteBtn" onClick={() => deleteItem(index)}>
-              <FiX size={26} color="hsl(236, 33%, 92%)" />
+              <FiX size={26} className="iconX" />
             </button>
           </div>
         )) : display === 'active'
@@ -109,17 +113,17 @@ export default function List() {
               <div className="wrapper">
                 {el.completed ? (
                   <button type="button" className="complete" onClick={() => completeTodo(index)}>
-                    <FiCheckCircle size={26} color="hsl(236, 33%, 92%)" />
+                    <FiCheckCircle size={26} className="checkCircleIcon" />
                   </button>
                 ) : (
                   <button type="button" className="uncomplete" onClick={() => completeTodo(index)}>
-                    <FiCircle size={26} color="hsl(236, 33%, 92%)" />
+                    <FiCircle size={26} className="circleIcon" />
                   </button>
                 )}
                 {el.item}
               </div>
               <button type="button" className="deleteBtn" onClick={() => deleteItem(index)}>
-                <FiX size={26} color="hsl(236, 33%, 92%)" />
+                <FiX size={26} className="iconX" />
               </button>
             </div>
           ))
@@ -128,17 +132,17 @@ export default function List() {
               <div className="wrapper">
                 {el.completed ? (
                   <button type="button" className="complete" onClick={() => completeTodo(index)}>
-                    <FiCheckCircle size={26} color="hsl(236, 33%, 92%)" />
+                    <FiCheckCircle size={26} className="checkCircleIcon" />
                   </button>
                 ) : (
                   <button type="button" className="uncomplete" onClick={() => completeTodo(index)}>
-                    <FiCircle size={26} color="hsl(236, 33%, 92%)" />
+                    <FiCircle size={26} className="circleIcon" />
                   </button>
                 )}
                 {el.item}
               </div>
               <button type="button" className="deleteBtn" onClick={() => deleteItem(index)}>
-                <FiX size={26} color="hsl(236, 33%, 92%)" />
+                <FiX size={26} className="iconX" />
               </button>
             </div>
           ))}

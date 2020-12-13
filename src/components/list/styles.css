@@ -10,6 +10,7 @@
   border-bottom: hsl(236, 33%, 92%) 1px solid;
   padding: 10px 15px 10px 15px;
   color: var(--font);
+  cursor: pointer;
 }
 
 .deleteBtn{
@@ -94,13 +95,17 @@
   padding: 15px;
   box-shadow: var(--box-shadow);
   color: var(--font);
-  
 }
 
 .itemsLeftWrapper button{
   background: none;
   border: none;
   color: var(--font);
+  cursor: pointer;
+}
+
+.itemsLeftWrapper button:hover{
+  font-weight: 700;
 }
 
 .filters {
@@ -117,11 +122,37 @@
 .filters button{
   background: none;
   border: none;
-  font-weight: 700;
   color: var(--font);
+  cursor: pointer;
+}
+
+.filters button:hover{
+  font-weight: 700;
 }
 
 .filterActive{
   color: hsl(220, 98%, 61%);
+  font-weight: 700;
+}
+
+.redIcon{
+  margin-right: 5px;
+}
+
+.circleIcon{
+  color:hsl(236, 33%, 92%);
+}
+
+.checkCircleIcon{
+  color:hsl(280, 87%, 65%);
+}
+
+.iconX{
+  color:hsl(236, 33%, 92%);
+}
+
+.circleIcon:hover{
+  cursor: pointer;
+  color:hsl(280, 87%, 65%);
 }
 
